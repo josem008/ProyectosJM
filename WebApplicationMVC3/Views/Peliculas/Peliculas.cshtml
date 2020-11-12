@@ -1,0 +1,54 @@
+﻿@model WebApplicationMVC3.Context.pelicula
+
+
+
+@{
+    ViewBag.Title = " Agregar Peliculas";
+
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<style>
+
+    .error {
+       color:red
+    }
+
+</style>
+
+@using (Html.BeginForm("AddPeliculas", "Peliculas", FormMethod.Post))
+{
+
+    <div class="container">
+        <div class="form-group">
+             @Html.HiddenFor(x=>x.idPelicula)
+            <label>Titulo</label>
+           
+            @Html.TextBoxFor(x => x.titulo, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Duracion</label>
+           
+            @Html.TextBoxFor(x => x.duracion, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Publicacion</label>
+           
+            @Html.TextBoxFor(x => x.publicacion, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="reset" class="btn btn-da">Cancelar</button>
+        </div>
+
+    </div>
+
+
+
+}
+
+
+
+

@@ -1,0 +1,40 @@
+﻿@model List<WebApplicationMVC3.Context.pelicula>
+
+
+
+@{
+    ViewBag.Title = "PeliculasList";
+}
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Duracion</th>
+                <th>Lanzamiento</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pelicula in Model)
+            {
+            <tr>
+                <td>@pelicula.idPelicula</td>
+                <td>@pelicula.titulo</td>
+                <td>@pelicula.duracion</td>
+                <td>@pelicula.publicacion</td>
+                <td>
+                    <a href="@Url.Action("Peliculas",new {pelicula.idPelicula, pelicula.titulo, pelicula.duracion, pelicula.publicacion })"><i class="glyphicon glyphicon-pencil"> </i></a>
+                    <a href="@Url.Action("Delete",new {pelicula.idPelicula })" class="btn btn-danger">Delete </a>
+                </td>
+
+            </tr>
+
+            }
+
+        </tbody>
+
+
+
+    </table>
